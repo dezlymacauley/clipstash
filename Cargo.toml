@@ -10,3 +10,12 @@ name = "clipstash"
 path = "src/lib/mod.rs"
 
 [dependencies]
+
+# For adding the following traits to structs
+# `[derive(Deserialize, Serialize)]`
+serde = "1"
+
+# For converting data into a json format
+serde_json = "1"
+
+thiserror = "1"
