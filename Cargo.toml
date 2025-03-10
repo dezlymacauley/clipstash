@@ -13,11 +13,18 @@ path = "src/lib/mod.rs"
 
 # For adding the following traits to structs
 # `[derive(Deserialize, Serialize)]`
-serde = "1"
+# This prepares your Rust structs so they’re ready 
+# to be converted to or from a data format, using the `serde_json` crate
+serde = { version = "1.0", features = ["derive"] }
 
-# For converting data into a json format
+# This is the crate that does the conversion.
+# It takes those prepped structs 
+# and does the actual work of turning them 
+# into JSON or reading JSON back into structs.
 serde_json = "1"
 
+# Allows you to use the trait
+# `[derive(Error)]`
 thiserror = "1"
 
 chrono = { version = "0.4", features = ["serde"] }

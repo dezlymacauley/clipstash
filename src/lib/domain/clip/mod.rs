@@ -1,34 +1,75 @@
 // SECTION: Listing the sub-directories that are in `src/lib/domain/clip`
 
-// 1. `field` is a sub-directory `src/lib/domain/clip/field`
-// 2. `mod` tells Rust that this is a module. 
-// A module is just a directory that contains Rust files.
-// 3. `pub` means public, which means that any Rust file that is inside
-// src/lib/domain/clip/
-// can use code from the directory src/lib/domain/clip/field 
-
-// E.g. If you had a file like: `src/lib/domain/clip/example_file.rs`
-// and you wanted to use code from: 
-// `src/lib/domain/clip/field/awesome_code.rs` in `example_file.rs`
-
-// Then inside `example_file.rs`, you would add this line:
-// `use super::field::awesome_code`
-
-// `super` is how to import awesome_code.rs in using a relative path.
-// If you wanted to import awesome_code.rs with a relative path then you
-// would have to do this:
-// use crate::lib::domain::clip::field::awesome_code;
-
 pub mod field;
 
 //_____________________________________________________________________________
 // SECTION: Creating a struct that matches the schema of the SQLite database
 
+use serde::{ Deserialize, Serialize };
 
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct Clip {
 
-// pub struct Clip {
-//
-// }
+    // Each clip will have a unique id
+    // pub clip_id: field::ClipId,
+    
+    // The URL used to locate the clip
+    // pub shortcode: field::ShortCode,
+
+    // The actual clip itself
+    // pub content: field::Content,
+
+    // The title of the clip
+    // pub title: field::Title,
+
+    // The date that it was posted
+    // pub posted: field::Posted,
+    
+    // When it expires (if it does) 
+    // pub expires: field::Expires,
+
+    // Password protection
+    // pub password: field::Password,
+    
+    // The number of times that the clip is viewed
+    // pub hits: field::Hits,
+
+}
+
+//_____________________________________________________________________________
+/*
+    // NOTE: Deserialize an Serialize
+    
+    ------------------------------------------------------------
+    1. Deserialize 
+    - JSON to Rust 
+    - Client ===>>> Server
+
+    Takes a data format like JSON,
+    and converts it into a Rust object (like a struct).
+    Takes a data format like JSON, and converts it to a Rust
+    object like a struct
+
+    This process is usually done when you receive data 
+    from an external source (e.g., an API response) 
+    and want to work with it in your Rust application.
+
+    ------------------------------------------------------------
+    2. Serialize
+    - Rust to JSON
+    - Client <<<=== Server
+
+    Takes a Rust object (like a struct) 
+    and converts it into a data format like JSON.
+
+    Takes a Rust object, and converts it 
+    to a data format like JSON
+
+    This is typically done when you need to send 
+    data to an external system (e.g., when making an API request).
+    ------------------------------------------------------------
+
+*/
 
 //_____________________________________________________________________________
 
@@ -65,29 +106,6 @@ pub mod field;
 // #[derive(Debug, Clone, Deserialize, Serialize)]
 // pub struct Clip {
 //
-//     // Each clip will have a unique id
-//     pub clip_id: field::ClipId,
-//     
-//     // The URL used to locate the clip
-//     pub shortcode: field::ShortCode,
-//
-//     // The actual clip itself
-//     pub content: field::Content,
-//
-//     // The title of the clip
-//     pub title: field::Title,
-//
-//     // The date that it was posted
-//     pub posted: field::Posted,
-//     
-//     // When it expires (if it does) 
-//     pub expires: field::Expires,
-//
-//     // Password protection
-//     pub password: field::Password,
-//     
-//     // The number of times that the clip is viewed
-//     pub hits: field::Hits,
 //
 // }
 
